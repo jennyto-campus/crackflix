@@ -5,9 +5,14 @@ export default function Header() {
 
     return (
         <div className={styles.header}>
-            <Link href="/movies" className={styles.nav}>Movies</Link>
-            <img src="../../crackflix-logo.png" alt="Crackflix Logo" className={styles.logo}/>
-            <Link href="/series" className={styles.nav}>Series</Link>
+            <div className={styles.nav}>
+                <Link href="/series" ><a >Movies</a></Link>
+            </div>
+            <img src="../../crackflix-logo.png" alt="Crackflix Logo" className={styles.logo} />
+            <div className={styles.nav}>
+                <Link href="/series" ><a >Series</a></Link>
+            </div>
+
         </div>
     )
 }

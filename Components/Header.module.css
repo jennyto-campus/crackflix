@@ -19,3 +19,10 @@
     height: 30%;
     margin: 0 10%;
 }
+
+
+.nav :hover{
+    background: -webkit-linear-gradient(left,  #6985C0 , #DB05FE);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
