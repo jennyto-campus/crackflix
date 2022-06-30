@@ -10,7 +10,7 @@ import { Router } from 'next/router'
 function MyApp(  { Component, props } ) {
   return (
 
-    
+    /*
     <BrowserRouter>
       <Routes>
         <Route render={props => (
@@ -24,12 +24,12 @@ function MyApp(  { Component, props } ) {
       </Routes>
       
     </BrowserRouter>
-          
-    /*
+      */    
+    
     <Layout>
         <Component {...props} />
     </Layout> 
-          */
+          
   )
 
 }
