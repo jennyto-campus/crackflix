@@ -1,11 +1,12 @@
 import styles from "./MovieSlide.module.css"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import MovieAPI from "../lib/api/Movies"
 import SwiperCore, { Autoplay } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { originalImage } from "../lib/api"
 import { useHistory } from "react-router-dom"
 import { w500Image } from "../lib/api"
+
 
 export default function MovieSlide() {
 
@@ -43,6 +44,7 @@ export default function MovieSlide() {
                     ))
                 }
             </Swiper>
+          
         </div>
     )
 }
@@ -54,6 +56,8 @@ const MovieSlideItem = props => {
 
     const background = originalImage(item.backdrop_path ? item.backdrop_path : item.poster_path)
 
+    
+
     return (
         <div className={styles.movieSlide__item} style={{ backgroundImage: `url(${background})` }} >
             <div className={styles.movieSlide__item__content }>
@@ -64,7 +68,7 @@ const MovieSlideItem = props => {
                         <button className={styles.btnWtch} onClick={() => history.push('/movie/' + item.id)}>
                             Watch now
                         </button>
-                        <button className={styles.btnTrl} onClick={() => console.log('trailer')}>
+                        <button className={styles.btnTrl} onClick={console.log('trailer')}>
                             Watch Trailer
                         </button>
                     </div>
@@ -76,3 +80,4 @@ const MovieSlideItem = props => {
         </div>
     )
 }
+
