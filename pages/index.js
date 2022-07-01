@@ -9,16 +9,6 @@ export default function Home() {
 
   const [movies, setMovies] = useState([])
 
-  /*
-  useEffect(() => {
-    const getPopular = async () => {
-      const movies = await MovieAPI.readPopular()
-      setMovies(movies)
-      console.log(movies)
-    }
-    getPopular()
-  },[]) */
-
   return (
     <div className={styles.container}>
       <Head>
@@ -27,6 +17,9 @@ export default function Home() {
 
       <main className={styles.main}>
         <MovieSlide/>
+        <div className={styles.container}>
+          <div></div>
+        </div>
       </main>
 
     </div>
