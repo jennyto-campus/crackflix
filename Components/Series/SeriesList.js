@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react"
+import SeriesAPI from "../../lib/api/Series"
+import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import styles from "./MovieList.module.css"
-import MovieAPI from "../lib/api/Movies"
-import MovieCard from "./MovieCard"
+import styles from "./SeriesList.module.css"
+import MovieCard from "../MovieCard"
 
-
-export default function MovieList(props) {
+export default function SeriesList(props) {
 
     const [items, setItems] = useState([])
     console.log(props.category)
@@ -20,7 +19,7 @@ export default function MovieList(props) {
 
             if (keyword === undefined) {
                 const params = {}
-                response = await MovieAPI.getMovieList("upcoming", { params })
+                response = await SeriesAPI.getSeriesList("popular", { params })
 
             }
 
@@ -33,12 +32,11 @@ export default function MovieList(props) {
 
     return (
         <div className={styles.container}>
-            <div className={styles.movie_grid}>
+            <div className={styles.series_grid}>
                 {
                     items.map((item, i) => <MovieCard category={props.category} item={item} key={i} />)
                 }
             </div>
         </div>
-
     )
 }

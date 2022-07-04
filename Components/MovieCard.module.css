@@ -1,9 +1,13 @@
+.container {
+    color: #ffffff;
+}
+
 .movie_card {
     position: relative;
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
-    padding-top: 16%;
+    padding-top: 160%;
     border-radius: 30px;
     margin-bottom: 1rem;
 }
@@ -20,10 +24,24 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    cursor: pointer;
     
 }
 
+
 .movie_card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #000000;
+    opacity: 0;
+    border-radius: 30px;
+} 
+
+.btn::before {
     content: "";
     position: absolute;
     top: 0;

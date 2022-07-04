@@ -26,7 +26,7 @@ export default function MovieSlide() {
             }
         }
         getMovies()
-        console.log(movieItems)
+        
     }, []);
 
 

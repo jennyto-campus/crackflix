@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css'
 import MovieSlide from '../Components/MovieSlide'
 import MovieAPI from '../lib/api/Movies'
 import { useEffect, useState } from 'react'
+import MovieCat from '../Components/MovieCat'
 
 export default function Home() {
 
@@ -16,9 +17,15 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <MovieSlide/>
+        <MovieSlide />
         <div className={styles.container}>
-          <div></div>
+          <div className={styles.section}>
+            <div className={styles.section__header}>
+              <h2>Trending</h2>
+              <MovieCat category='movie' type='popular'/>
+            </div>
+            
+          </div>
         </div>
       </main>
 

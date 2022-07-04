@@ -4,8 +4,6 @@ import styles from "../styles/movies.module.css"
 
 export default function MoviesPage() {
 
-    const { category } = useParams()
-    console.log(category)
 
     return (
         <div className={styles.container}>

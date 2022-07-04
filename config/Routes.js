@@ -1,6 +1,5 @@
 import { Route, Switch } from "react-router-dom";
 import Catalog from "../pages/Catalog";
-import Detail from "../pages/Detail";
 import Home from "../pages";
 
 export default function RoutesGenerator() {

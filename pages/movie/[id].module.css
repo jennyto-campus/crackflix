@@ -1,0 +1,87 @@
+.bg {
+    height: 50vh;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.bg::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-image: linear-gradient(to top, #0f0f0f, rgba(0,0,0,0));
+}
+
+.cont {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: -20rem auto 0 auto;
+    position: relative;
+    padding: 0 15rem;
+    color: #ffffff;
+}
+
+.poster {
+    flex: 1;
+}
+
+.poster_img {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+    padding-top: 165%;
+}
+
+.info {
+    width: 70%;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.title {
+    font-size: 4rem;
+    line-height: 1;
+    margin-bottom: 2rem;
+}
+
+.genres {
+    margin-bottom: 2rem;
+}
+
+.genres_item {
+    padding: 0.5rem 1.5rem;
+    margin-right: 2rem;
+    border: 2px solid #ffffff;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background-color: transparent;
+}
+
+.container {
+    background-color: #1a1b23;
+    height: 100vh;
+}
+
+.actors {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 10px;
+}
+
