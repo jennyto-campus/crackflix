@@ -12,6 +12,10 @@ export default function DetailMovie(  {item}  ) {
         console.log(item)
     }, [])
 
+    const handleClick = () => {
+        
+    }
+
     return (
         <div className={styles.container}>
             <div style={{backgroundImage: `url(${originalImage(item.backdrop_path)})`}} className={styles.bg} ></div>
@@ -31,6 +35,7 @@ export default function DetailMovie(  {item}  ) {
                     <p className={styles.overview}>{item.overview}</p>
                     <div className={styles.actors}>
                         <div className={styles.section}>
+                            <button onClick={handleClick} >rate</button>
                             <h2>Credits</h2>
                         </div>
                         <Credits id={item.id} category={"movie"}/>
