@@ -6,6 +6,8 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import { originalImage } from "../lib/api"
 import { useHistory } from "react-router-dom"
 import { w500Image } from "../lib/api"
+import { useRouter } from "next/router"
+import Modal, { ModalContent } from "./Modal"
 
 
 export default function MovieSlide() {
@@ -44,17 +46,37 @@ export default function MovieSlide() {
                     ))
                 }
             </Swiper>
+
+            {
+                movieItems.map((item, i) => <TrailerModal key={i}  item={item}/>)
+            }
           
         </div>
     )
 }
 
 const MovieSlideItem = props => {
-    let history = useHistory
+    const router = useRouter()
 
     const item = props.item
 
     const background = originalImage(item.backdrop_path ? item.backdrop_path : item.poster_path)
+
+    const setModalActive = async () => {
+        const modal = document.querySelector(`#modal_${item.id}`)
+        console.log(document.querySelector(`#modal_${item.id}`))
+        console.log(modal)
+        const videos = await MovieAPI.getVideos('movie', item.id)
+
+        if(videos.results.length > 0) {
+            const videoSrc = 'https://www.youtube.com/embed/' + videos.results[0].key
+            modal.querySelector('.Modal_modal_content__usGva > iframe').setAttribute('src', videoSrc)
+        } else {
+            modal.querySelector('.modal_content').innerHTML = 'No Trailer'
+        }
+
+        modal.classList.toggle('active')
+    }
 
     
 
@@ -65,10 +87,10 @@ const MovieSlideItem = props => {
                     <h2 className={styles.title}>{item.title}</h2>
                     <div className={styles.overview}>{item.overview}</div>
                     <div className={styles.btns}>
-                        <button className={styles.btnWtch} onClick={() => history.push('/movie/' + item.id)}>
+                        <button className={styles.btnWtch} onClick={() => router.push('/movie/' + item.id)}>
                             Watch now
                         </button>
-                        <button className={styles.btnTrl} onClick={console.log('trailer')}>
+                        <button className={styles.btnTrl} onClick={setModalActive}>
                             Watch Trailer
                         </button>
                     </div>
@@ -79,5 +101,21 @@ const MovieSlideItem = props => {
             </div>
         </div>
     )
+}
+
+const TrailerModal = props => {
+
+    const item = props.item
+    const iframeRef = useRef(null)
+    const onClose = () => iframeRef.current.setAttribute('src', '')
+
+    return (
+        <Modal active={false} id={`modal_${item.id}`}>
+            <ModalContent onClose={onClose} className={styles.modal_content}>
+                <iframe  ref={iframeRef} width="100%" height={"500px"} title="trailer" ></iframe>
+            </ModalContent>
+        </Modal>
+    )
+
 }
 

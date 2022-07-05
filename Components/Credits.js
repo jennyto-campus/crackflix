@@ -10,7 +10,7 @@ export default function Credits(props) {
     useEffect(()=> {
         const getCredits = async () => {
             const response = await MovieAPI.getCredits(props.category, props.id)
-            setCredits(response.cast.slice(0,5))
+            setCredits(response.cast.slice(0,7))
         }
         getCredits()
     }, [ props.id])

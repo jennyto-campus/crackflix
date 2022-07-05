@@ -1,5 +1,6 @@
 .container {
     color: #ffffff;
+    
 }
 
 .movie_card {
@@ -10,6 +11,9 @@
     padding-top: 160%;
     border-radius: 30px;
     margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn {
@@ -20,15 +24,15 @@
     padding: 0.7rem 2rem;
     font-size: 1.5rem;
     font-weight: 600;
-    position: relative;
+    display: none;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 40%;
     cursor: pointer;
+    
     
 }
 
-
+/*
 .movie_card::before {
     content: "";
     position: absolute;
@@ -51,4 +55,8 @@
     background-color: #000000;
     opacity: 0;
     border-radius: 30px;
+}*/
+
+.movie_card:hover > .btn {
+    display: inline;
 }

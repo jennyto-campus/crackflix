@@ -20,7 +20,7 @@ export default function DetailMovie(  {item}  ) {
                     <div style={{backgroundImage: `url(${originalImage(item.poster_path)})`}} className={styles.poster_img}  ></div>
                 </div>
                 <div className={styles.info}>
-                    <h1 className={styles.title}>{item.title}</h1>
+                    <h1 className={styles.title}>{item.name}</h1>
                     <div className={styles.genres}>
                         {
                             item.genres.slice(0,5).map((genre, i) => (
@@ -33,7 +33,7 @@ export default function DetailMovie(  {item}  ) {
                         <div className={styles.section}>
                             <h2>Credits</h2>
                         </div>
-                        <Credits id={item.id} category={"movie"}/>
+                        <Credits id={item.id} category={"tv"}/>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@ export default function DetailMovie(  {item}  ) {
 }
 
 export async function getStaticProps(context) {
-    const item = await MovieAPI.getDetail("movie", context.params.id)
+    const item = await MovieAPI.getDetail("tv", context.params.id)
     return {
         props: { item }
     }
@@ -52,7 +52,7 @@ export async function getStaticProps(context) {
 export async function getStaticPaths() {
     const items = []
     const params = {}
-    const response = await MovieAPI.getMovieList('upcoming' , {params})
+    const response = await MovieAPI.getMovieList('popular' , {params})
     items.push(response)
     const paths = items.map(item => (
         {

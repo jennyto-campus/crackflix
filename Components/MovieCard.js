@@ -14,7 +14,8 @@ export default function MovieCard(props) {
     
 
     const handleClick = () => {
-        router.push(`/movie/${item.id}`)
+        //router.push(`/movie/${item.id}`)
+        router.push(`/`+props.category+`/${item.id}`)
     }
 
     return (

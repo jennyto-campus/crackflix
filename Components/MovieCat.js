@@ -33,7 +33,6 @@ export default function MovieCat(props) {
             <Swiper grabCursor={true} spaceBetween={10} slidesPerView={'auto'}>
                 {
                     items.map((item, i) => {
-                        {console.log(item.poster_path)}
                         <SwiperSlide key={i}>
                             <img src={w500Image(items[i].poster_path)} alt=""/>
                         </SwiperSlide>
