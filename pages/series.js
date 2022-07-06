@@ -1,4 +1,4 @@
-import SeriesList from "../Components/Series/SeriesLIst"
+import SeriesList from "../Components/Series/SeriesList"
 import styles from "../styles/series.module.css"
 
 export default function SeriesPage() {
