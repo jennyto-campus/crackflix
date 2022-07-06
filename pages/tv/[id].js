@@ -59,5 +59,5 @@ export async function getStaticPaths() {
             params: {id: String(item.id)}
         }
     ))
-    return {paths, fallback: true}
+    return {paths, fallback: false}
 }
