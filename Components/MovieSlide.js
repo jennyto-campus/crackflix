@@ -10,7 +10,7 @@ import { useRouter } from "next/router"
 import Modal, { ModalContent } from "./Modal"
 
 
-export default function MovieSlide() {
+export default function MovieSlide(props) {
 
     SwiperCore.use([Autoplay])
 
