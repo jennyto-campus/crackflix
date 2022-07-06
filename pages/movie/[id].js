@@ -8,13 +8,8 @@ import Credits from "../../Components/Credits"
  
 export default function DetailMovie(  {item}  ) {
 
-    useEffect(()=> {
-        console.log(item)
-    }, [])
+    console.log(item)
 
-    const handleClick = () => {
-        
-    }
 
     return (
         <div className={styles.container}>
@@ -35,7 +30,7 @@ export default function DetailMovie(  {item}  ) {
                     <p className={styles.overview}>{item.overview}</p>
                     <div className={styles.actors}>
                         <div className={styles.section}>
-                            <button onClick={handleClick} >rate</button>
+                            <button >rate</button>
                             <h2>Credits</h2>
                         </div>
                         <Credits id={item.id} category={"movie"}/>
@@ -46,6 +41,7 @@ export default function DetailMovie(  {item}  ) {
         
     )
 }
+
 
 export async function getStaticProps(context) {
     const item = await MovieAPI.getDetail("movie", context.params.id)
@@ -66,3 +62,6 @@ export async function getStaticPaths() {
     ))
     return {paths, fallback: true}
 }
+
+
+
